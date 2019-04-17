@@ -3,6 +3,7 @@
 #include <string>
 
 #include "IntClock.h"
+#include "Jobs.h"
 
 using namespace std;
 
@@ -12,6 +13,7 @@ public:
 	void log(const string &msg);
 	void log(const stringstream &sstr);
 	void boot();
+	void cycle();
 	void shutdown();
 	Mainline();
 	~Mainline();
@@ -21,6 +23,9 @@ public:
 	}
 
 private:
-	IntClock clock;
+	//IntClock clock;
+	Jobs submitted;
+	void load_jobs();
+	bool ask_if_done();
 	string version();
 };

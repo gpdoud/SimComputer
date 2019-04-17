@@ -13,6 +13,7 @@ int main() {
 
 	// body goes here
 	ml->boot();
+	ml->cycle();
 	ml->shutdown();
 
 	delete ml;

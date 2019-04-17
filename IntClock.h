@@ -18,6 +18,9 @@ public:
 	void add_event(Pevt& evt) {
 		events.push_back(evt);
 	}
+	void operator+=(Pevt& evt) {
+		add_event(evt);
+	}
 	void start_clock() {
 		for(auto idx = 0; idx < 5; idx++) { // 5 times
 			this_thread::sleep_for(seconds(1));
