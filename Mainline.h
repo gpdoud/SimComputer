@@ -2,18 +2,26 @@
 
 #include <string>
 
+#include "IntClock.h"
+#include "ITickable.h"
+
 using namespace std;
 
-class Mainline {
+class Mainline : public ITickable {
 
 public:
 	void log(const string &msg);
 	void log(const stringstream &sstr);
-	void init();
-	void term();
+	void boot();
+	void shutdown();
 	Mainline();
 	~Mainline();
 
+	static void Tick() {
+		cout << "Mainline::Tick" << endl;
+	}
+
 private:
+	IntClock clock;
 	string version();
 };

@@ -6,6 +6,7 @@
 
 #include "Logger.h"
 #include "Mainline.h"
+#include "IntClock.h"
 
 const int MAJOR = 0;
 const int MINOR = 0;
@@ -22,7 +23,7 @@ void Mainline::log(const string &msg) {
 void Mainline::log(const stringstream &stream) {
 	Logger::log(stream.str());
 }
-void Mainline::init() {
+void Mainline::boot() {
 	stringstream sstr;
 
 	sstr << "SimComputer"
@@ -34,8 +35,12 @@ void Mainline::init() {
 	stringstream str1;
 	str1 << "Startup." << endl;
 	log(str1.str());
+	// hook the tick method
+	Pevt evt = &Tick;
+	clock.add_event(evt);
+	clock.start_clock();
 }
-void Mainline::term() {
+void Mainline::shutdown() {
 	stringstream str;
 
 	str << "Shutdown." << endl;
@@ -47,11 +52,9 @@ chrono::time_point<chrono::system_clock> clock_end;
 
 Mainline::Mainline() {
 	clock_start = chrono::system_clock::now();
-	this->init();
 }
 
 
 Mainline::~Mainline() {
-	this->term();
 	clock_end = chrono::system_clock::now();
 }

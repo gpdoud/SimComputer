@@ -129,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IntClock.h" />
+    <ClInclude Include="ITickable.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Mainline.h" />
   </ItemGroup>
