@@ -3,11 +3,10 @@
 #include <string>
 
 #include "IntClock.h"
-#include "ITickable.h"
 
 using namespace std;
 
-class Mainline : public ITickable {
+class Mainline {
 
 public:
 	void log(const string &msg);
