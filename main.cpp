@@ -2,19 +2,19 @@
 #include <string>
 #include <sstream>
 
-#include "Mainline.h"
+#include "Computer.h"
 #include "IntClock.h"
 
 using namespace std;
 
 int main() {
 
-	Mainline *ml = new Mainline();
+	Computer *comp = new Computer();
 
 	// body goes here
-	ml->boot();
-	ml->cycle();
-	ml->shutdown();
+	comp->boot();
+	comp->cycle();
+	comp->shutdown();
 
-	delete ml;
+	delete comp;
 }

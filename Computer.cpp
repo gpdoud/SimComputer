@@ -5,7 +5,7 @@
 #include <ctime>
 
 #include "Logger.h"
-#include "Mainline.h"
+#include "Computer.h"
 #include "IntClock.h"
 #include "Utility.h"
 
@@ -13,7 +13,7 @@ const int MAJOR = 0;
 const int MINOR = 0;
 const int REVISION = 1;
 
-void Mainline::cycle() {
+void Computer::cycle() {
 	log("Cycling\n");
 	load_jobs();
 	bool done = false;
@@ -21,31 +21,31 @@ void Mainline::cycle() {
 		log("cycle\n");
 	} while(!(done = ask_if_done()));
 }
-bool Mainline::ask_if_done() {
+bool Computer::ask_if_done() {
 	cout << "=> ";
 	string cmd;
 	getline(cin, cmd);
 	DSI::String::toUpper(cmd);
 	return cmd.compare("QUIT") == 0;
 }
-void Mainline::load_jobs() {
+void Computer::load_jobs() {
 	Job j1, j2, j3;
 	submitted.Push(j1);
 	submitted.Push(j2);
 	submitted.Push(j3);
 }
-string Mainline::version() {
+string Computer::version() {
 	stringstream ver;
 	ver << MAJOR << "." << MINOR << "." << REVISION;
 	return ver.str();
 }
-void Mainline::log(const string &msg) {
+void Computer::log(const string &msg) {
 	Logger::log(msg);
 }
-void Mainline::log(const stringstream &stream) {
+void Computer::log(const stringstream &stream) {
 	Logger::log(stream.str());
 }
-void Mainline::boot() {
+void Computer::boot() {
 	stringstream sstr;
 	sstr << "SimComputer"
 		<< " v" << version()
@@ -61,18 +61,18 @@ void Mainline::boot() {
 	// start processing
 	//clock.start_clock();
 }
-void Mainline::shutdown() {
+void Computer::shutdown() {
 	log("Shutdown\n");
 }
 
 chrono::time_point<chrono::system_clock> clock_start;
 chrono::time_point<chrono::system_clock> clock_end;
 
-Mainline::Mainline() {
+Computer::Computer() {
 	clock_start = chrono::system_clock::now();
 }
 
 
-Mainline::~Mainline() {
+Computer::~Computer() {
 	clock_end = chrono::system_clock::now();
 }

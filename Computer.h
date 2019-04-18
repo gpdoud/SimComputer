@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Mainline {
+class Computer {
 
 public:
 	void log(const string &msg);
@@ -15,11 +15,11 @@ public:
 	void boot();
 	void cycle();
 	void shutdown();
-	Mainline();
-	~Mainline();
+	Computer();
+	~Computer();
 
 	static void Tick() {
-		cout << "Mainline::Tick" << endl;
+		cout << "Computer::Tick" << endl;
 	}
 
 private:
