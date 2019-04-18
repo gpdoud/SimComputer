@@ -123,6 +123,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="Core.cpp" />
+    <ClCompile Include="Cpu.cpp" />
     <ClCompile Include="Job.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
@@ -131,6 +134,9 @@
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="Core.h" />
+    <ClInclude Include="Cpu.h" />
     <ClInclude Include="IntClock.h" />
     <ClInclude Include="Job.h" />
     <ClInclude Include="Logger.h" />

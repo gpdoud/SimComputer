@@ -1,20 +1,27 @@
 #include <iostream>
 #include <string>
-#include <sstream>
-
 #include "Computer.h"
 #include "IntClock.h"
+#include "Logger.h"
 
 using namespace std;
 
+void log(std::string msg) {
+    Logger::log(msg);
+}
 int main() {
 
-	Computer *comp = new Computer();
+    Config *cfg = new Config();
+	Computer *comp = new Computer(cfg);
 
 	// body goes here
+    log("boot()");
 	comp->boot();
-	comp->cycle();
+    log("run()");
+	comp->run();
+    log("shutdown()");
 	comp->shutdown();
+    log("off.");
 
 	delete comp;
 }

@@ -1,14 +1,9 @@
 #include <iostream>
-
 #include "Logger.h"
 
-using namespace std;
-
-void Logger::log(const string msg) {
-	cout << ">" << msg;
+void Logger::log(const std::string msg) {
+    std::cout << msg << std::endl;
 }
 
 Logger::Logger() {}
-
-
 Logger::~Logger() {}

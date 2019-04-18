@@ -1,12 +1,10 @@
 #pragma once
 
-using namespace std;
-
 class Logger
 {
-public:
-	static void log(const string msg);
 	Logger();
+public:
+	static void log(const std::string msg);
 	~Logger();
 };
 
