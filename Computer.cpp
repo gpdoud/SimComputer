@@ -5,18 +5,16 @@ const int MINOR = 0;
 const int REVISION = 1;
 
 void Computer::run() {}
-void Computer::setup(Config* cfg) {
-    cpu->create_cores(cfg->nbr_cpus);
+void Computer::setup(Config *cfg) {
+    cpu.create_cores(cfg->nbr_cpus);
 }
 void Computer::boot() {}
 void Computer::shutdown() {}
 
 Computer::Computer(Config *cfg) {
-    cpu = new Cpu();
     this->cfg = cfg;
     setup(this->cfg);
 }
 
 Computer::~Computer() {
-    delete (this->cfg);
 }

@@ -5,8 +5,8 @@
 class Computer {
 
     Config *cfg;
-    Cpu* cpu;
-    void setup(Config* cfg);
+    Cpu cpu;
+    void setup(Config *cfg);
 public:
 	void boot();
 	void run();

@@ -11,17 +11,17 @@ void log(std::string msg) {
 }
 int main() {
 
-    Config *cfg = new Config();
-	Computer *comp = new Computer(cfg);
+    Config cfg;
+    Computer* comp = new Computer(&cfg);
 
-	// body goes here
+    // body goes here
     log("boot()");
-	comp->boot();
+    comp->boot();
     log("run()");
-	comp->run();
+    comp->run();
     log("shutdown()");
-	comp->shutdown();
+    comp->shutdown();
     log("off.");
 
-	delete comp;
+    delete comp;
 }
