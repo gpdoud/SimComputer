@@ -4,11 +4,9 @@
 
 #include "Job.h"
 
-using namespace std;
-
 class Jobs
 {
-	queue<Job> jobs;
+	std::queue<Job> jobs;
 
 public:
 	void Push(Job job);

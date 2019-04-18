@@ -6,11 +6,10 @@ class Computer {
 
     Config *cfg;
     Cpu cpu;
-    void setup(Config *cfg);
 public:
-	void boot();
+	void boot(Config* cfg);
 	void run();
 	void shutdown();
-	Computer(Config *cfg);
+	Computer();
 	~Computer();
 };

@@ -4,24 +4,23 @@
 #include "IntClock.h"
 #include "Logger.h"
 
-using namespace std;
-
 void log(std::string msg) {
     Logger::log(msg);
 }
 int main() {
 
+    Computer comp;
+
     Config cfg;
-    Computer* comp = new Computer(&cfg);
-
-    // body goes here
     log("boot()");
-    comp->boot();
-    log("run()");
-    comp->run();
-    log("shutdown()");
-    comp->shutdown();
-    log("off.");
+    comp.boot(&cfg);
 
-    delete comp;
+    log("run()");
+    comp.run();
+
+    log("shutdown()");
+    comp.shutdown();
+
+    log("stop.");
+
 }
