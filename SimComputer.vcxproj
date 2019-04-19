@@ -126,6 +126,7 @@
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="Cpu.cpp" />
+    <ClCompile Include="Dispatcher.cpp" />
     <ClCompile Include="Job.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
@@ -137,6 +138,7 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="Cpu.h" />
+    <ClInclude Include="Dispatcher.h" />
     <ClInclude Include="IntClock.h" />
     <ClInclude Include="Job.h" />
     <ClInclude Include="Logger.h" />
