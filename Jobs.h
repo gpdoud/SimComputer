@@ -6,11 +6,12 @@
 
 class Jobs
 {
-	std::queue<Job> jobs;
+	std::queue<Job> job_queue;
 
 public:
-	void Push(Job job);
+	void Push(Job *job);
 	Job Pop();
+    bool Count();
 	Jobs();
 	~Jobs();
 
