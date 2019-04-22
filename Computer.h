@@ -8,7 +8,8 @@ class Computer {
 
     Config *cfg = nullptr;
     Cpu cpu;
-    Dispatcher dp;
+    Jobs jobs_queue;
+    Dispatcher dispatcher;
 public:
 	void boot_up(Config* cfg);
     void load_jobs(Jobs *jobs);

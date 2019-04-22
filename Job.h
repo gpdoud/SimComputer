@@ -3,6 +3,7 @@
 
 class Job
 {
+    int id;
     std::string desc;
 
 public:
@@ -14,6 +15,7 @@ public:
 	~Job();
 
 private:
+    static int nxtId;
 
 };
 

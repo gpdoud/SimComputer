@@ -8,7 +8,7 @@ Job Jobs::Pop() {
 	job_queue.pop();
 	return job;
 }
-bool Jobs::Count() {
+size_t Jobs::Count() {
     return job_queue.size();
 }
 Jobs::Jobs() {}

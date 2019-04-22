@@ -11,7 +11,7 @@ class Jobs
 public:
 	void Push(Job *job);
 	Job Pop();
-    bool Count();
+    size_t Count();
 	Jobs();
 	~Jobs();
 

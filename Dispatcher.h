@@ -1,11 +1,12 @@
 #pragma once
+#include "Job.h"
 #include "Jobs.h"
 
 class Dispatcher {
-    Jobs* jobs = nullptr;
 
 public:
-    Dispatcher(Jobs *jobs);
+    Job read_job_queue(Jobs jobs);
+    Dispatcher();
     ~Dispatcher();
 };
 

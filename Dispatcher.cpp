@@ -1,7 +1,11 @@
 #include "Dispatcher.h"
+#include "Jobs.h"
 
-Dispatcher::Dispatcher(Jobs* jobs) {
-    this->jobs = jobs;
+Job Dispatcher::read_job_queue(Jobs jobs) {
+    return jobs.Pop();
+}
+
+Dispatcher::Dispatcher() {
 }
 Dispatcher::~Dispatcher() {
 }

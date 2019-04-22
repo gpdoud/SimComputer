@@ -15,11 +15,15 @@ void Computer::load_jobs(Jobs *jobs) {
 
     while(jobs->Count() > 0) {
         Job job = jobs->Pop();
+        jobs_queue.Push(&job);
         Logger::log("Job [" + job.get_desc() + "] loaded...");
     }
 }
 
-void Computer::run() {}
+void Computer::run() {
+    Job job = dispatcher.read_job_queue(jobs_queue);
+    Logger::log("running " + job.get_desc() + " ...");
+}
 
 void Computer::shut_down() {}
 
