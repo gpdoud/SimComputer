@@ -132,6 +132,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Computer.cpp" />
     <ClCompile Include="Jobs.cpp" />
+    <ClCompile Include="Process.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +141,7 @@
     <ClInclude Include="Cpu.h" />
     <ClInclude Include="Dispatcher.h" />
     <ClInclude Include="IntClock.h" />
+    <ClInclude Include="Process.h" />
     <ClInclude Include="Job.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Computer.h" />

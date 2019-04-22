@@ -7,5 +7,7 @@ Job Dispatcher::read_job_queue(Jobs jobs) {
 
 Dispatcher::Dispatcher() {
 }
+Dispatcher::Dispatcher() {
+}
 Dispatcher::~Dispatcher() {
 }
