@@ -21,8 +21,10 @@ void Process::inc_comp_cycles(int cycles = 1) {
 }
 
 Process::Process() {
-    CoCreateGuid(&guid);
-    state = STATE_NEW;
+    HRESULT rc = CoCreateGuid(&guid);
+    state = STATE_ERROR;
+    if(rc == S_OK)
+        state = STATE_NEW;
     req_cycles = 1;
     comp_cycles = 0;
 }

@@ -10,7 +10,12 @@ void log(std::string msg) {
     Logger::log(msg);
 }
 void get_job_to_run(Jobs &jobs) {
-    jobs.Push(new Job("Job 1"));
+    Job *j1 = new Job("Job1");
+    Process p1;
+    p1.set_req_cycles(10);
+    j1->add_process(p1);
+
+    jobs.Push(j1);
     jobs.Push(new Job("Job 2"));
     jobs.Push(new Job("Job 3"));
 }

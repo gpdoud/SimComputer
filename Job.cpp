@@ -12,6 +12,10 @@ void Job::set_desc(std::string desc) {
     this->desc = desc;
 }
 
+void Job::add_process(Process p) {
+    pq.Push(p);
+}
+
 Job::Job() : Job("") {
     id = -1;
 }
