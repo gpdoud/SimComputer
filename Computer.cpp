@@ -22,7 +22,7 @@ void Computer::load_jobs(Jobs *jobs) {
 
 void Computer::run() {
     Job job = dispatcher.read_job_queue(jobs_queue);
-    Logger::log("running " + job.get_desc() + " ...");
+    Logger::log("running [" + std::to_string(job.get_id()) + "] " + job.get_desc() + " ...");
 }
 
 void Computer::shut_down() {}
