@@ -42,20 +42,13 @@ int main() {
     Computer comp;
 
     Config cfg;
-    log("boot_up()");
     comp.boot_up(&cfg);
 
-    log("load_jobs()");
     Jobs jobs;
     get_job_to_run(jobs);
     comp.load_jobs(&jobs);
 
-    log("run()");
     comp.run();
 
-    log("shut_down()");
     comp.shut_down();
-
-    log("stop.");
-
 }

@@ -10,6 +10,8 @@ class Process {
     int req_cycles;
     int comp_cycles;
 public:
+
+    GUID get_guid();
     int get_req_cycles();
     void set_req_cycles(int cycles);
     int get_comp_cycles();

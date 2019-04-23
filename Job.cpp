@@ -1,5 +1,5 @@
+#include <sstream>
 #include "Job.h"
-//#include "Utility.h"
 
 int Job::get_id() {
     return id;
@@ -16,13 +16,19 @@ void Job::add_process(Process p) {
     pq.Push(p);
 }
 
+std::string Job::dump() {
+    std::stringstream strs;
+    strs << "Job: [" << this->get_id() << "] "
+        << this->get_desc() << std::endl;
+    // TODO: iterate through the process_queue to display debug info
+    return strs.str();
+}
+
 Job::Job() : Job("") {
     id = -1;
 }
 
 Job::Job(std::string desc) {
-    //DSI::IntGenerator* ig = DSI::IntGenerator::create_instance();
-    //this->id = ig->next();
     static int lastId = 0;
     this->id = ++lastId;
     if(desc.compare("") != 0)

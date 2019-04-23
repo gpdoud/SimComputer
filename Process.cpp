@@ -1,5 +1,9 @@
 #include "Process.h"
 
+GUID Process::get_guid() {
+    return guid;
+}
+
 int Process::get_req_cycles() {
     return req_cycles;
 }
