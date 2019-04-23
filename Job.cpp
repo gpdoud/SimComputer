@@ -1,4 +1,5 @@
 #include <sstream>
+#include <guiddef.h>
 #include "Job.h"
 
 int Job::get_id() {
@@ -20,7 +21,15 @@ std::string Job::dump() {
     std::stringstream strs;
     strs << "Job: [" << this->get_id() << "] "
         << this->get_desc() << std::endl;
-    // TODO: iterate through the process_queue to display debug info
+    std::vector<Process> procs = this->pq.to_vector();
+    for(auto proc = procs.begin(); proc != procs.end(); proc++) {
+        strs << "*proc: guid: " << std::to_string(proc->get_guid().Data1)
+            << ", cycles completed " 
+            << std::to_string(proc->get_comp_cycles())
+            << " / "
+            << std::to_string(proc->get_req_cycles())
+            << std::endl;
+    }
     return strs.str();
 }
 
