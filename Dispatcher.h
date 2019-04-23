@@ -5,7 +5,7 @@
 class Dispatcher {
 
 public:
-    Job read_job_queue(Jobs jobs);
+    Job read_job_queue(Jobs *jobs);
     Dispatcher();
     ~Dispatcher();
 };

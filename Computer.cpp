@@ -16,13 +16,15 @@ void Computer::load_jobs(Jobs *jobs) {
     while(jobs->Count() > 0) {
         Job job = jobs->Pop();
         jobs_queue.Push(&job);
-        Logger::log("Job [" + job.get_desc() + "] loaded...");
+        Logger::log("Job [" + std::to_string(job.get_id()) + "] " + job.get_desc() + " loaded...");
     }
 }
 
 void Computer::run() {
-    Job job = dispatcher.read_job_queue(jobs_queue);
-    Logger::log("running [" + std::to_string(job.get_id()) + "] " + job.get_desc() + " ...");
+    while(jobs_queue.Count() > 0) {
+        Job job = dispatcher.read_job_queue(&jobs_queue);
+        Logger::log("running [" + std::to_string(job.get_id()) + "] " + job.get_desc() + " run ...");
+    }
 }
 
 void Computer::shut_down() {}

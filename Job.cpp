@@ -1,5 +1,5 @@
 #include "Job.h"
-#include "Utility.h"
+//#include "Utility.h"
 
 int Job::get_id() {
     return id;
@@ -21,8 +21,10 @@ Job::Job() : Job("") {
 }
 
 Job::Job(std::string desc) {
-    DSI::IntGenerator* ig = DSI::IntGenerator::create_instance();
-    this->id = ig->next();
+    //DSI::IntGenerator* ig = DSI::IntGenerator::create_instance();
+    //this->id = ig->next();
+    static int lastId = 0;
+    this->id = ++lastId;
     if(desc.compare("") != 0)
         this->set_desc(desc);
 }
