@@ -1,4 +1,5 @@
 #include "Process.h"
+#include <combaseapi.h>
 
 GUID Process::get_guid() {
     return guid;

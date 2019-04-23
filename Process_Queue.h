@@ -1,14 +1,16 @@
 #pragma once
-#include <queue>
+#include <list>
 #include "Process.h"
 
 class Process_Queue {
-    std::queue<Process> processes;
+    std::list<Process> processes;
 public:
-    std::vector<Process> to_vector();
-    void Push(const Process& process);
+    Process* curr_process = nullptr;
+    void Push(Process& process);
     Process Pop();
     Process Peek();
+    std::list<Process>::iterator begin();
+    std::list<Process>::iterator end();
     Process_Queue();
     ~Process_Queue();
 };

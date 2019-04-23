@@ -23,6 +23,11 @@ void Computer::load_jobs(Jobs *jobs) {
 
 void Computer::run() {
     Logger::log("run()");
+    for(auto idx = 0; idx < cpu.get_cores(); idx++) {
+        Job job = dispatcher.read_job_queue(&jobs_queue);
+        this->cpu.peek(idx).exec(&job);
+    }
+
     while(jobs_queue.Count() > 0) {
         Job job = dispatcher.read_job_queue(&jobs_queue);
         Logger::log("running [" + std::to_string(job.get_id()) + "] " + job.get_desc() + " run ...");
