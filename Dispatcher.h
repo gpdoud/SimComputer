@@ -5,7 +5,8 @@
 class Dispatcher {
 
 public:
-    Job read_job_queue(Jobs *jobs);
+    Job Pop(Jobs *jobs);
+    void Push(Jobs* jobs, Job *job);
     Dispatcher();
     ~Dispatcher();
 };
