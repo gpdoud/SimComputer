@@ -1,8 +1,8 @@
 #include "Dispatcher.h"
 #include "Jobs.h"
 
-Job Dispatcher::Pop(Jobs *jobs) {
-    Job job = jobs->Pop();
+Job* Dispatcher::Pop(Jobs *jobs) {
+    Job* job = jobs->Pop();
     return job;
 }
 void Dispatcher::Push(Jobs* jobs, Job *job) {

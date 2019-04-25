@@ -15,19 +15,21 @@ void Computer::boot_up(Config* cfg) {
 void Computer::load_jobs(Jobs *jobs) {
     Logger::log("load_jobs()");
     while(jobs->Count() > 0) {
-        Job job = jobs->Pop();
-        jobs_queue.Push(&job);
-        Logger::log(job.dump() + " loaded...");
+        Job* job = jobs->Pop();
+        jobs_queue.Push(job);
+        Logger::log(job->dump() + " loaded...");
     }
 }
 
 void Computer::run() {
     Logger::log("run()");
-    for(auto idx = 0; idx < cpu.get_cores(); idx++) {
-        Job job = dispatcher.Pop(&jobs_queue); // pop job from queue
-        Logger::log("exec " + job.get_desc() + " on core " + std::to_string(idx));
-        this->cpu.peek(idx).exec(&job); // exec current process
-        dispatcher.Push(&jobs_queue, &job); // push job back on queue
+    for(size_t idx = 0; idx < cpu.cores(); idx++) {
+        Job* job = dispatcher.Pop(&jobs_queue); // pop job from queue
+        Logger::log("exec " + job->get_desc() + " on core " + std::to_string(idx));
+        Core* core = cpu.peek(idx);
+        core->exec(job); // exec current process
+        Logger::log(job->dump());
+        dispatcher.Push(&jobs_queue, job); // push job back on queue
     }
 }
 

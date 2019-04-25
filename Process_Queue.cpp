@@ -1,25 +1,26 @@
 #include "Process_Queue.h"
 
-void Process_Queue::Push(Process& process) {
+void Process_Queue::Push(Process* process) {
     if(processes.size() == 0)
-        curr_process = &process;
+        curr_process = process;
     processes.push_back(process);
 }
-Process Process_Queue::Pop() {
-    Process proc = Peek();
+Process* Process_Queue::Pop() {
+    Process* proc = Peek();
     processes.pop_front();
     return proc;
 }
-Process Process_Queue::Peek() {
+Process* Process_Queue::Peek() {
     return processes.front();
 }
-std::list<Process>::iterator Process_Queue::begin() {
+std::list<Process*>::iterator Process_Queue::begin() {
     return processes.begin();
 }
-std::list<Process>::iterator Process_Queue::end() {
+std::list<Process*>::iterator Process_Queue::end() {
     return processes.end();
 }
 Process_Queue::Process_Queue() {
+    processes = std::list<Process*>();
 }
 
 Process_Queue::~Process_Queue() {

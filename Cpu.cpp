@@ -1,23 +1,24 @@
 #include "Cpu.h"
 #include "Core.h"
 
-size_t Cpu::get_cores() const {
-    return cores.size();
+size_t Cpu::cores() const {
+    return cpu_cores.size();
 }
 
-Core Cpu::peek(size_t idx) {
-    return this->cores[idx];
+Core* Cpu::peek(size_t idx) {
+    return cpu_cores[idx];
 }
 
 void Cpu::create_cores(int nbr) {
     for(auto idx = 0; idx < nbr; idx++) {
-        Core core;
-        cores.push_back(core);
+        Core* core = new Core();
+        cpu_cores.push_back(core);
     }
 }
 
 Cpu::Cpu() {
+    cpu_cores = std::vector<Core*>();
 }
 Cpu::~Cpu() {
-    cores.clear();
+    cpu_cores.clear();
 }

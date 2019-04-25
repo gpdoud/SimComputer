@@ -6,7 +6,6 @@ class Core {
 
 public:
     void exec(Job* job);
-    int A = 8;
     Core();
     ~Core();
 };

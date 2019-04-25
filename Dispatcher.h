@@ -5,7 +5,7 @@
 class Dispatcher {
 
 public:
-    Job Pop(Jobs *jobs);
+    Job* Pop(Jobs *jobs);
     void Push(Jobs* jobs, Job *job);
     Dispatcher();
     ~Dispatcher();
