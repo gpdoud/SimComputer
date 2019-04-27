@@ -1,5 +1,12 @@
 #include "Process_Queue.h"
 
+Process* Process_Queue::current() {
+    return curr_process;
+}
+Process_Queue& Process_Queue::current(Process* process) {
+    curr_process = process;
+    return *this;
+}
 void Process_Queue::Push(Process* process) {
     if(processes.size() == 0)
         curr_process = process;

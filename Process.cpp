@@ -1,6 +1,10 @@
 #include "Process.h"
 #include <combaseapi.h>
 
+Process& Process::state_complete() {
+    state = STATE_COMPLETE;
+    return *this;
+}
 GUID Process::get_guid() {
     return guid;
 }
