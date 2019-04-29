@@ -24,12 +24,15 @@ void Computer::load_jobs(Jobs *jobs) {
 void Computer::process_cycle() {
     Logger::debug("Computer::process_cycle()");
     for(size_t idx = 0; idx < cpu.cores(); idx++) {
+        if(jobs_queue.Count() == 0) // all jobs finished?
+            return; // yes; done.
         Job* job = dispatcher.Pop(&jobs_queue); // pop job from queue
         Logger::log("exec job " + job->get_desc() + " on core " + std::to_string(idx));
         Core* core = cpu.peek(idx);
-        core->exec(job); // exec current process
-        Logger::log(job->dump());
-        dispatcher.Push(&jobs_queue, job); // push job back on queue
+        if(!core->exec(job)) { // exec current process; if not done executing
+            Logger::log(job->dump());
+            dispatcher.Push(&jobs_queue, job); // push job back on queue
+        }
     }
 }
 

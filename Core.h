@@ -5,7 +5,7 @@
 class Core {
 
 public:
-    void exec(Job* job);
+    bool exec(Job* job);
     Core();
     ~Core();
 };

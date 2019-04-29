@@ -13,20 +13,20 @@ void Job::set_desc(std::string desc) {
     this->desc = desc;
 }
 
-Process_Queue Job::get_pq() const {
+Process_Queue* Job::get_pq() {
     return this->pq;
 }
 
 void Job::add_process(Process* p) {
-    pq.Push(p);
+    pq->Push(p);
 }
 
 std::string Job::dump() {
     std::stringstream strs;
     strs << "Job: [" << this->get_id() << "] "
         << this->get_desc() << std::endl;
-    for(auto proc = pq.begin(); proc != pq.end(); proc++) {
-        strs << "*proc: guid: " << std::to_string((*proc)->get_guid().Data1)
+    for(auto proc = pq->begin(); proc != pq->end(); proc++) {
+        strs << "    *proc: guid: " << std::to_string((*proc)->get_guid().Data1)
             << ", cycles completed " 
             << std::to_string((*proc)->get_comp_cycles())
             << " / "
@@ -41,7 +41,7 @@ Job::Job() : Job("") {
 }
 
 Job::Job(std::string desc) {
-    pq = Process_Queue();
+    pq = new Process_Queue();
     static int lastId = 0;
     this->id = ++lastId;
     if(desc.compare("") != 0)

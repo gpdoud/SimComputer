@@ -5,6 +5,9 @@ Process& Process::state_complete() {
     state = STATE_COMPLETE;
     return *this;
 }
+bool Process::isComplete() {
+    return state == STATE_COMPLETE;
+}
 GUID Process::get_guid() {
     return guid;
 }

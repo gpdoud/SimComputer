@@ -4,10 +4,10 @@
 
 class Process_Queue {
     std::list<Process*> processes;
-    Process* curr_process = nullptr;
+    //Process* curr_process = nullptr;
 public:
-    Process* current();
-    Process_Queue& current(Process* process);
+    //Process* current();
+    //Process_Queue& current(Process* process);
     void Push(Process* process);
     Process* Pop();
     Process* Peek();

@@ -10,32 +10,36 @@ void log(std::string msg) {
     Logger::log(msg);
 }
 void get_job_to_run(Jobs &jobs) {
+//
     Job *j1 = new Job("Job1 10 cycles");
     Process* p1 = new Process();
     p1->set_req_cycles(10);
     j1->add_process(p1);
     jobs.Push(j1);
-
-    Job* j2 = new Job("Job2 300 cycles");
+//
+//
+    Job* j2 = new Job("Job2 33 cycles");
     Process* p2_1 = new Process();
-    p2_1->set_req_cycles(100);
+    p2_1->set_req_cycles(11);
     j2->add_process(p2_1);
     Process* p2_2 = new Process();
-    p2_2->set_req_cycles(200);
+    p2_2->set_req_cycles(22);
     j2->add_process(p2_2);
     jobs.Push(j2);
-
-    Job* j3 = new Job("Job3 6000 cycles");
+//
+//
+    Job* j3 = new Job("Job3 66 cycles");
     Process* p3_1 = new Process();
-    p3_1->set_req_cycles(1000);
+    p3_1->set_req_cycles(11);
     j3->add_process(p3_1);
     Process* p3_2 = new Process();
-    p3_2->set_req_cycles(2000);
+    p3_2->set_req_cycles(22);
     j3->add_process(p3_2);
     Process* p3_3 = new Process();
-    p3_3->set_req_cycles(3000);
+    p3_3->set_req_cycles(33);
     j3->add_process(p3_3);
     jobs.Push(j3);
+//
 }
 int main() {
 
