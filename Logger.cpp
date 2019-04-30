@@ -1,11 +1,16 @@
 #include <iostream>
+#include <sstream>
 #include <string>
+#include <Windows.h>
 #include "Logger.h"
 
 void Logger::write(const std::string msg, const char sev) {
-    std::cout << "[" << sev << "]"
+    std::stringstream sstr;
+    sstr << "[" << sev << "]"
         << " " << msg 
         << std::endl;
+    std::cout << sstr.str();
+    OutputDebugString(sstr.str().c_str());
 }
 void Logger::log(const std::string msg) {
     info(msg);
