@@ -10,7 +10,7 @@ void Logger::write(const std::string msg, const char sev) {
         << " " << msg 
         << std::endl;
     std::cout << sstr.str();
-    OutputDebugString(sstr.str().c_str());
+    OutputDebugString(sstr.str().c_str()); // write output to output window in vs.net
 }
 void Logger::log(const std::string msg) {
     info(msg);
