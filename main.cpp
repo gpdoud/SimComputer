@@ -40,6 +40,22 @@ void get_job_to_run(Jobs &jobs) {
     j3->add_process(p3_3);
     jobs.Push(j3);
 //
+//
+    Job* j4 = new Job("Job4 110 cycles");
+    Process* p4_1 = new Process();
+    p4_1->set_req_cycles(11);
+    j4->add_process(p4_1);
+    Process* p4_2 = new Process();
+    p4_2->set_req_cycles(22);
+    j4->add_process(p4_2);
+    Process* p4_3 = new Process();
+    p4_3->set_req_cycles(33);
+    j4->add_process(p4_3);
+    Process* p4_4 = new Process();
+    p4_4->set_req_cycles(44);
+    j4->add_process(p4_4);
+    jobs.Push(j4);
+//
 }
 int main() {
 
